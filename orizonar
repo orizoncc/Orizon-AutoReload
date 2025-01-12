@@ -1,0 +1,14 @@
+        while true do
+    wait(0.1)
+    local player = game:GetService("Players").LocalPlayer
+    local tool = player.Character:FindFirstChildWhichIsA("Tool")
+    
+    if tool then
+        local ammo = tool:FindFirstChild("Ammo")
+        
+        if ammo and ammo.Value <= 0 then
+            game:GetService("ReplicatedStorage").MainEvent:FireServer("Reload", tool)
+        end
+    end
+end
+    end)
